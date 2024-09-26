@@ -13,7 +13,7 @@ namespace Assignment.Classes
 {
     internal static class PersonManager
     {
-        public static Person authenticateUser(string username, string password)
+        public static Person AuthenticateUser(string username, string password)
         {
             string Username = "";
             string Password = "";
@@ -42,14 +42,8 @@ namespace Assignment.Classes
                     MobileNumber = reader["mobilenumber"].ToString();
                     Role = reader["role"].ToString();
                     Email = reader["email"].ToString();
-
-
-
-
-
                 }
                 reader.Close();
-
 
             }
             catch (Exception ex)
@@ -62,17 +56,13 @@ namespace Assignment.Classes
                 dbConnections.CloseConnection();
             }
 
-
-
             if (Username == "" || Password != password)
             {
                 MessageBox.Show("Invalid Username or Password!");
             }
             else
             {
-
-
-                MessageBox.Show("Login in Success !!");
+                MessageBox.Show("Login Successful!");
 
                 if (Role == "admin")
                 {
@@ -89,9 +79,6 @@ namespace Assignment.Classes
                     Person user = new Participant(PersonId, Username, Password, Email, MobileNumber);
                     return user;
                 }
-
-
-
             }
 
             return null;
@@ -110,13 +97,9 @@ namespace Assignment.Classes
                         {
                             DBConnections dbConnection = new DBConnections();
 
-
                             try
                             {
                                 dbConnection.OpenConnection();
-
-
-
                                 string query2 = $"INSERT INTO `person`(`username`, `password`, `role`, `mobilenumber`, `email`) VALUES ('{username}','{password}','{role}','{number}','{email}')";
                                 MySqlCommand cmd2 = new MySqlCommand(query2, dbConnection.GetConnection());
                                 cmd2.ExecuteNonQuery();
@@ -151,19 +134,11 @@ namespace Assignment.Classes
             }
         }
 
-
-
-    
-
-        public static List<Person> getAllUsersList()
+        public static List<Person> GetAllUsersList()
         {//Return a list of all the users (in the type of person)
 
             //List declaration (empty at this point)
             List<Person> personList = new List<Person>();
-
-
-
-
 
             DBConnections dbConnections = new DBConnections();
             // get all the records from the 'person' table
@@ -221,7 +196,7 @@ namespace Assignment.Classes
             return null;
         }
 
-        public static void changeRole(string user, string role)
+        public static void ChangeRole(string user, string role)
         {
 
 

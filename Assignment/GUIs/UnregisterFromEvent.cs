@@ -14,7 +14,7 @@ namespace Assignment.GUIs
 {
     public partial class UnregisterFromEvent : Form
     {
-        List<Event> events = EventManager.getAllEventsList();
+        List<Event> events = EventManager.GetAllEventsList();
         List<string> eventNames = new List<string>();
 
         Person person;
@@ -44,7 +44,7 @@ namespace Assignment.GUIs
 
             if (eventNames.Contains(eventName))
             {
-                BookingManager.unregisterEvent(events[eventNames.IndexOf(eventName)], person);
+                BookingManager.UnregisterEvent(events[eventNames.IndexOf(eventName)], person);
             }
             else
             {

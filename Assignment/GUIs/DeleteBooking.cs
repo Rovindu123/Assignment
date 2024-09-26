@@ -17,15 +17,13 @@ namespace Assignment.GUIs
     {
         List<string> NamesofallUsers = new List<string>();
         List<string> NamesofallEvents = new List<string>();
-        List<Classes.Event> allevents = Classes.EventManager.getAllEventsList();
-        List<Classes.Person> allusers = Classes.PersonManager.getAllUsersList();
+        List<Classes.Event> allevents = Classes.EventManager.GetAllEventsList();
+        List<Classes.Person> allusers = Classes.PersonManager.GetAllUsersList();
 
 
         public DeleteBooking()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();   
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,7 +47,7 @@ namespace Assignment.GUIs
             string evenT = eventselectbox.Text;
             if (participant == "")
             {
-                MessageBox.Show("Select a user");
+                MessageBox.Show("Select an user");
             }
             else if (NamesofallUsers.Contains(participant))
             {
@@ -61,7 +59,7 @@ namespace Assignment.GUIs
                 {
                     Person selectedPerson = allusers[NamesofallUsers.IndexOf(participant)];
                     Event selectedEvent = allevents[NamesofallEvents.IndexOf(evenT)];
-                    BookingManager.unregisterEvent(selectedEvent, selectedPerson);
+                    BookingManager.UnregisterEvent(selectedEvent, selectedPerson);
 
                 }
                 else
@@ -95,7 +93,6 @@ namespace Assignment.GUIs
             {
                 eventselectbox.Items.Add(name.GetEventName());
                 NamesofallEvents.Add(name.GetEventName());
-
             }
 
         }

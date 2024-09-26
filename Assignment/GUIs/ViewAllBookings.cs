@@ -43,7 +43,7 @@ namespace Assignment.GUIs
             table.Columns.Add("Participant", typeof(string));
             table.Columns.Add("Event", typeof(string));
 
-            List<Booking> allBookings = BookingManager.getAllBookingList();
+            List<Booking> allBookings = BookingManager.GetAllBookingList();
 
             foreach (Booking booking in allBookings)
             {

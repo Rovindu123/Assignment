@@ -13,7 +13,7 @@ namespace Assignment.GUIs
 {
     public partial class DeleteEvents : Form
     {
-        List<Classes.Event> allEvents = Classes.EventManager.getAllEventsList();
+        List<Classes.Event> allEvents = Classes.EventManager.GetAllEventsList();
         List<string> allNamesOfEvents = new List<string>();
         public DeleteEvents()
         {
@@ -24,19 +24,13 @@ namespace Assignment.GUIs
 
                 if (index >= allEvents.Count)
                 {
-
                     break;
-
                 }
                 string NameOfEvent = allEvents[index].GetEventName();
                 allNamesOfEvents.Add(NameOfEvent);
                 eventselectbox.Items.Add(NameOfEvent);
 
-
-
                 index++;
-
-
             }
 
 
@@ -66,10 +60,7 @@ namespace Assignment.GUIs
                 if (allNamesOfEvents.Contains(eventName))
                 {
                     Classes.Event EventToDelete = allEvents[allNamesOfEvents.IndexOf(eventName)];
-                    Classes.EventManager.deleteEvent(EventToDelete);
-
-                    
-
+                    Classes.EventManager.DeleteEvent(EventToDelete);
                 }
                 else
                 {

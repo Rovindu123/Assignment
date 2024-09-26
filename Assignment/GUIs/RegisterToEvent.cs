@@ -14,7 +14,7 @@ namespace Assignment.GUIs
 {
     public partial class RegisterToEvent : Form
     {
-        List<Event> events = EventManager.getAllEventsList();
+        List<Event> events = EventManager.GetAllEventsList();
         List<string> eventNames = new List<string>();
 
         Person person;

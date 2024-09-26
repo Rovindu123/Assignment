@@ -11,7 +11,7 @@ namespace Assignment.Classes
 {
     internal static class EventManager
     {
-        public static List<Event> getAllEventsList()
+        public static List<Event> GetAllEventsList()
         {
             List<Event> eventList = new List<Event>();
 
@@ -70,7 +70,7 @@ namespace Assignment.Classes
             return null;
         }
 
-        public static void createEvent(string name, string venue, string time, string date, string maxparticipant, Person organizer,string price)
+        public static void CreateEvent(string name, string venue, string time, string date, string maxparticipant, Person organizer,string price)
         {
             if (InputValidator.validateEventName(name))
             {
@@ -102,11 +102,8 @@ namespace Assignment.Classes
             }
 
         }
-
-
-
-        
-        public static void deleteEvent(Event ev)
+     
+        public static void DeleteEvent(Event ev)
         {
 
 
@@ -140,7 +137,7 @@ namespace Assignment.Classes
 
         }
 
-        public static void editEvent(Event ev, string name, string venue, string time, string date, string maxParticipants,string price)
+        public static void EditEvent(Event ev, string name, string venue, string time, string date, string maxParticipants,string price)
         {
             string evId = ev.GetEventID();
             string evName = name;
@@ -209,8 +206,8 @@ namespace Assignment.Classes
 
         }
 
-       
-        public static void updateCurrentParticipants(Event ev)
+      
+        public static void UpdateCurrentParticipants(Event ev)
         {
             int participantCount = 0;
 

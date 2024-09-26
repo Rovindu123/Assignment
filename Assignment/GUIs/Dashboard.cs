@@ -46,7 +46,7 @@ namespace Assignment.GUIs
             }
 
 
-            refreshTable();
+            RefreshTable();
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace Assignment.GUIs
 
         private void refreshbtn_Click(object sender, EventArgs e)
         {
-            refreshTable();
+            RefreshTable();
         }
 
         private void addparttoeventbtn_Click(object sender, EventArgs e)
@@ -124,9 +124,8 @@ namespace Assignment.GUIs
             addAdmin.ShowDialog();  
         }
 
-        private void refreshTable()
+        private void RefreshTable()
         {
-            
             
                 DataTable table = new DataTable();
                 table.Columns.Add("Event ID", typeof(string));
@@ -138,7 +137,7 @@ namespace Assignment.GUIs
                 table.Columns.Add("Price", typeof(string));
                 table.Columns.Add("Organizer", typeof(string));
 
-                List<Classes.Event> Events = Classes.EventManager.getAllEventsList();
+                List<Classes.Event> Events = Classes.EventManager.GetAllEventsList();
                 foreach (Classes.Event Event in Events)
                 {
                     table.Rows.Add(Event.GetEventID(), Event.GetEventName(), Event.GetDate(), Event.GetTime(), Event.GetVenue(), $"{Event.GetCurrentParticipants()}/{Event.GetMaxParticipants()}", Event.GetTicketPrice(), Event.GetOrganizer());

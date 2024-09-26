@@ -43,9 +43,7 @@ namespace Assignment.GUIs
             {
                 if (newRole != "")
                 {
-
-
-                    PersonManager.changeRole(person, newRole);
+                    PersonManager.ChangeRole(person, newRole);
                 }
                 else
                 {
@@ -62,7 +60,7 @@ namespace Assignment.GUIs
         
         private void AddAdmin_Load(object sender, EventArgs e)
         {
-            List<Person> Users = PersonManager.getAllUsersList();
+            List<Person> Users = PersonManager.GetAllUsersList();
             foreach (Person person in Users)
             {
                 string username = person.GetUsername();

@@ -13,7 +13,7 @@ namespace Assignment.GUIs
 {
     public partial class EditEvents : Form
     {
-        List<Classes.Event> allEvents = Classes.EventManager.getAllEventsList();
+        List<Classes.Event> allEvents = Classes.EventManager.GetAllEventsList();
         List<string> allNamesOfEvents = new List<string>();
 
         public EditEvents()
@@ -25,20 +25,14 @@ namespace Assignment.GUIs
             {
                 
                 if (index >= allEvents.Count)
-                {
-                    
+                {                   
                     break;
-
                 }
                 string NameOfEvent = allEvents[index].GetEventName();
                 allNamesOfEvents.Add(NameOfEvent);
                 selecteventbox.Items.Add(NameOfEvent);
                
-                
-
                 index++;
-                
-            
             }
 
         }
@@ -74,7 +68,7 @@ namespace Assignment.GUIs
                 if (evDate > today)
                 {
                     Classes.Event eventToEdit = allEvents[allNamesOfEvents.IndexOf(selecteventbox.Text)];
-                    Classes.EventManager.editEvent(eventToEdit,newEventName,newEventVenue,newEventTime,newEventDate,newMaxP,newPrice);
+                    Classes.EventManager.EditEvent(eventToEdit,newEventName,newEventVenue,newEventTime,newEventDate,newMaxP,newPrice);
 
                 }
 

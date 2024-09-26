@@ -33,11 +33,11 @@ namespace Assignment.GUIs
 
         private void ViewAllEvents_Load(object sender, EventArgs e)
         {
-            refreshTable();
+            RefreshTable();
 
 
         }
-        public void refreshTable()
+        public void RefreshTable()
         {
             DataTable table = new DataTable();
             table.Columns.Add("Event ID", typeof(string));
@@ -49,7 +49,7 @@ namespace Assignment.GUIs
             table.Columns.Add("Price", typeof(string));
             table.Columns.Add("Organizer", typeof(string));
 
-            List<Classes.Event> Events = Classes.EventManager.getAllEventsList();
+            List<Classes.Event> Events = Classes.EventManager.GetAllEventsList();
             foreach (Classes.Event Event in Events)
             {
                 table.Rows.Add(Event.GetEventID(), Event.GetEventName(), Event.GetDate(), Event.GetTime(), Event.GetVenue(), $"{Event.GetCurrentParticipants()}/{Event.GetMaxParticipants()}",Event.GetTicketPrice(), Event.GetOrganizer());
@@ -60,7 +60,7 @@ namespace Assignment.GUIs
 
         private void button1_Click(object sender, EventArgs e)
         {
-            refreshTable();
+            RefreshTable();
         }
     }
 }

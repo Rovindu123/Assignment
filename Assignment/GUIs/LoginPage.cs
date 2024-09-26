@@ -40,7 +40,7 @@ namespace Assignment.GUIs
            string un =  usernametxt.Text;
            string pw = pwtxt.Text;
 
-           Person loggedInUser = PersonManager.authenticateUser(un,pw);
+           Person loggedInUser = PersonManager.AuthenticateUser(un,pw);
             if (loggedInUser != null) 
             {
                 Dashboard dashboard = new Dashboard(loggedInUser);
@@ -67,9 +67,8 @@ namespace Assignment.GUIs
             else
             {
                 pwtxt.Text = pwtxt.Text;
-            }
-            
-               
+            } 
         }
+        
     }
 }

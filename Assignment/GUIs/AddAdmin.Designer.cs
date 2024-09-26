@@ -41,7 +41,7 @@
             // adminrole
             // 
             this.adminrole.AutoSize = true;
-            this.adminrole.Location = new System.Drawing.Point(287, 200);
+            this.adminrole.Location = new System.Drawing.Point(341, 200);
             this.adminrole.Name = "adminrole";
             this.adminrole.Size = new System.Drawing.Size(66, 20);
             this.adminrole.TabIndex = 0;
@@ -52,7 +52,7 @@
             // organizerrole
             // 
             this.organizerrole.AutoSize = true;
-            this.organizerrole.Location = new System.Drawing.Point(395, 201);
+            this.organizerrole.Location = new System.Drawing.Point(452, 200);
             this.organizerrole.Name = "organizerrole";
             this.organizerrole.Size = new System.Drawing.Size(86, 20);
             this.organizerrole.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 27);
+            this.label1.Location = new System.Drawing.Point(321, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 29);
             this.label1.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 204);
+            this.label2.Location = new System.Drawing.Point(170, 204);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 16);
             this.label2.TabIndex = 3;
@@ -82,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(155, 152);
+            this.label3.Location = new System.Drawing.Point(170, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 16);
             this.label3.TabIndex = 4;
@@ -91,14 +91,14 @@
             // selectuserbox
             // 
             this.selectuserbox.FormattingEnabled = true;
-            this.selectuserbox.Location = new System.Drawing.Point(287, 144);
+            this.selectuserbox.Location = new System.Drawing.Point(341, 144);
             this.selectuserbox.Name = "selectuserbox";
             this.selectuserbox.Size = new System.Drawing.Size(234, 24);
             this.selectuserbox.TabIndex = 5;
             // 
             // savechangesbtn
             // 
-            this.savechangesbtn.Location = new System.Drawing.Point(221, 290);
+            this.savechangesbtn.Location = new System.Drawing.Point(264, 290);
             this.savechangesbtn.Name = "savechangesbtn";
             this.savechangesbtn.Size = new System.Drawing.Size(123, 41);
             this.savechangesbtn.TabIndex = 6;
@@ -108,7 +108,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(395, 290);
+            this.button2.Location = new System.Drawing.Point(424, 290);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 41);
             this.button2.TabIndex = 7;

@@ -81,7 +81,7 @@ namespace Assignment.GUIs
                 
                 if (evDate > today)
                 {
-                    EventManager.createEvent(eventName, venue, $"{timehrs}:{timemin}", $"{eventDate}", maxParts, organizer, ticketPrice);
+                    EventManager.CreateEvent(eventName, venue, $"{timehrs}:{timemin}", $"{eventDate}", maxParts, organizer, ticketPrice);
                 }
                 else
                 {

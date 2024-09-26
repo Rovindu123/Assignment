@@ -17,8 +17,8 @@ namespace Assignment.GUIs
         List<string> NamesofAllUsers = new List<string>(); 
         List<string> NamesofAllEvents = new List<string>();
 
-        List<Event> allEvents = EventManager.getAllEventsList();
-        List<Person> allUsers = PersonManager.getAllUsersList();
+        List<Event> allEvents = EventManager.GetAllEventsList();
+        List<Person> allUsers = PersonManager.GetAllUsersList();
 
         
         public CreateBookings()

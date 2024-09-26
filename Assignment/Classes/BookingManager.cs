@@ -21,24 +21,18 @@ namespace Assignment.ManagerClasses
             {
                 if (ev.GetCurrentParticipants() < ev.GetMaxParticipants())
                 {
-
-
                     DBConnections dbConnection = new DBConnections();
                     try
                     {
                         dbConnection.OpenConnection();
 
-
-
                         string query2 = $"INSERT INTO `booking`( `participant`, `event`) VALUES ('{participantName}','{eventName}')";
                         MySqlCommand cmd2 = new MySqlCommand(query2, dbConnection.GetConnection());
                         cmd2.ExecuteNonQuery();
 
-                        EventManager.updateCurrentParticipants(ev);
+                        EventManager.UpdateCurrentParticipants(ev);
 
                         MessageBox.Show("Booking added succesfully..!");
-
-
 
                     }
                     catch (Exception ex)
@@ -52,7 +46,7 @@ namespace Assignment.ManagerClasses
                 }
                 else
                 {
-                    MessageBox.Show("Cannot register : Event Overbooked! ");
+                    MessageBox.Show("Cannot register : Maximum number of participants reached! ");
                 }
             }
 
@@ -60,8 +54,7 @@ namespace Assignment.ManagerClasses
 
         }
 
-
-        public static void unregisterEvent(Event ev, Person participant)
+        public static void UnregisterEvent(Event ev, Person participant)
         {
             string eventName = ev.GetEventName();
             string participantName = participant.GetUsername();
@@ -74,18 +67,13 @@ namespace Assignment.ManagerClasses
                 {
                     dbConnection.OpenConnection();
 
-
-
                     string query2 = $"DELETE FROM `booking` WHERE participant='{participantName}' and event='{eventName}';";
                     MySqlCommand cmd2 = new MySqlCommand(query2, dbConnection.GetConnection());
                     cmd2.ExecuteNonQuery();
 
-                    EventManager.updateCurrentParticipants(ev);
+                    EventManager.UpdateCurrentParticipants(ev);
 
                     MessageBox.Show("Booking removed succesfully..!");
-
-
-
                 }
                 catch (Exception ex)
                 {
@@ -101,10 +89,9 @@ namespace Assignment.ManagerClasses
 
         }
 
-        public static List<Event> getAllMyEventsList(Person user)
+        public static List<Event> GetAllMyEventsList(Person user)
         {
             List<Event> eventList = new List<Event>();
-
 
             string EventId;
             string Name;
@@ -115,7 +102,6 @@ namespace Assignment.ManagerClasses
             int CurrentParticipants;
             string Organizer;
             string ticketPrice;
-
 
             DBConnections dbConnections = new DBConnections();
             string query = $"SELECT event.* FROM event JOIN booking ON event.name = booking.event WHERE booking.participant = '{user.GetUsername()}' ORDER BY event.date ASC, event.time ASC;";
@@ -143,19 +129,6 @@ namespace Assignment.ManagerClasses
 
                     eventList.Add(new Event(Name, EventId, Venue, Time, Date, MaxParticipants, CurrentParticipants, Organizer, ticketPrice));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
                 return eventList;
                 reader.Close();
@@ -165,7 +138,6 @@ namespace Assignment.ManagerClasses
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
-
             }
             finally
             {
@@ -174,13 +146,11 @@ namespace Assignment.ManagerClasses
             return null;
         }
 
-       
-
-        public static List<Booking> getAllBookingList()
+        public static List<Booking> GetAllBookingList()
         {
             List<Booking> bookingList = new List<Booking>();
-            List<Event> allEventList = EventManager.getAllEventsList();
-            List<Person> allUsersList = PersonManager.getAllUsersList();
+            List<Event> allEventList = EventManager.GetAllEventsList();
+            List<Person> allUsersList = PersonManager.GetAllUsersList();
 
             List<string> allEventNames = new List<string>();
             foreach (Event ev in allEventList)
@@ -193,12 +163,9 @@ namespace Assignment.ManagerClasses
                 allUserNames.Add(p.GetUsername());
             }
 
-
             string BookingID;
             string PARTICIPANT;
             string EVENT;
-
-
 
             DBConnections dbConnections = new DBConnections();
             string query = $"SELECT * FROM `booking`";
@@ -209,11 +176,8 @@ namespace Assignment.ManagerClasses
                 dbConnections.OpenConnection();
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-
                 while (reader.Read())
                 {
-
-
 
                     BookingID = reader["bookingID"].ToString();
                     PARTICIPANT = reader["participant"].ToString();
@@ -222,34 +186,17 @@ namespace Assignment.ManagerClasses
                     Event bookedEvent = allEventList[allEventNames.IndexOf(EVENT)];
                     Person bookedUser = allUsersList[allUserNames.IndexOf(PARTICIPANT)];
 
-
-                    
                     bookingList.Add(new Booking(BookingID, bookedEvent, bookedUser));
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 }
 
                 return bookingList;
                 reader.Close();
 
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
-
             }
             finally
             {
