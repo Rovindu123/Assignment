@@ -18,9 +18,7 @@ namespace Assignment.Classes
                 if (field == "")
                 {
                     emptyFields = true;
-
                 }
-
             }
             if (emptyFields)
             {
